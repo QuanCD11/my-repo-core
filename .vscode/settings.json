@@ -1,0 +1,18 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "files.autoSave": "onFocusChange",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    },
+    "gherkin-autocomplete.featuresPath": "src/test/features",
+    "cucumberautocomplete.steps": ["src/test/steps/**/*.ts"],
+    "cucumberautocomplete.syncfeatures": "src/test/features/**/*.feature",
+    "vs-code-prettier-eslint.prettierLast": false
+}
+  

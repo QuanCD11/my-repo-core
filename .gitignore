@@ -1,0 +1,15 @@
+## NodeJS
+node_modules
+dist
+
+## Cucumber
+reports
+
+## Sauce
+artifacts
+
+## Config
+.env
+config.*.yaml
+!config.tmpl.yaml
+.npmrc 

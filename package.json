@@ -1,0 +1,22 @@
+{
+  "name": "@EpisourceLLC/my-repo-core",
+  "version": "1.0.20",
+  "description": "description",
+  "license": "MIT",
+  "author": {
+    "name": "Quan Chu",
+    "email": "quan.chu@episource.com"
+  },
+  "scripts": {
+    "npm-publish": "npm publish",
+    "release": "standard-version && git push --follow-tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EpisourceLLC/my-repo-core.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

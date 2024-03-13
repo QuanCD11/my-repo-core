@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - develop
+# on:
+#   push:
+#     tags:
+#       - '*'
+
+jobs:
+  # Package:
+  #   uses: EpisourceLLC/qe-workflows/.github/workflows/release-npm.yml@develop
+  #   with:
+  #     node_version: '20.x'
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve Secrets from AWS Secrets Manager
+        run: |
+          export GITHUB_TOKEN=$(aws secretsmanager get-secret-value --secret-id '${{ env.EPI_TEAM }}-github-token-${{ env.AWS_REGION }}-${{ env.EPI_ENVIRONMENT }}' --query SecretString --output text)
+          echo "GITHUB_TOKEN=${GITHUB_TOKEN}" >> "$GITHUB_ENV"
+          echo "::add-mask::$GITHUB_TOKEN"
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://npm.pkg.github.com/
+          scope: '@EpisourceLLC'
+
+      - name: Authenticate with GitHub Packages
+        run: echo "//npm.pkg.github.com/:_authToken=${{ env.GITHUB_TOKEN }}" > ~/.npmrc
